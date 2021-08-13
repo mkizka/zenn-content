@@ -1,0 +1,7 @@
+{
+  "name": "@mkizka/zenn-content",
+  "private": true,
+  "dependencies": {
+    "zenn-cli": "^0.1.94"
+  }
+}
