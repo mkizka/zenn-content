@@ -1,7 +1,10 @@
 {
   "name": "@mkizka/zenn-content",
   "private": true,
+  "scripts": {
+    "dev": "zenn preview"
+  },
   "dependencies": {
-    "zenn-cli": "^0.1.94"
+    "zenn-cli": "^0.1.98"
   }
 }
