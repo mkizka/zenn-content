@@ -1,10 +1,10 @@
 lockfileVersion: 5.3
 
 specifiers:
-  zenn-cli: ^0.1.98
+  zenn-cli: ^0.1.100
 
 dependencies:
-  zenn-cli: 0.1.98
+  zenn-cli: 0.1.100
 
 packages:
 
@@ -844,8 +844,8 @@ packages:
         optional: true
     dev: false
 
-  /zenn-cli/0.1.98:
-    resolution: {integrity: sha512-XHLtzOTip8qf+nj4WoQqOC+EQ3jC4GmC31YzERxc4bR/5MYTyEj0cCh5b1dbJDPM8f6P3L53k6b+nR+87h5afQ==}
+  /zenn-cli/0.1.100:
+    resolution: {integrity: sha512-vqROUN2seFTPMOmyG1FwiB+dzN1LhxBvZPEeMGv96k2HIQYy/IIFjDgaygFDXayxAS1rOc8vQh3Ax4KyU5/axA==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dependencies:
@@ -863,15 +863,15 @@ packages:
       node-fetch: 2.6.5
       open: 8.4.0
       ws: 7.5.5
-      zenn-markdown-html: 0.1.98
+      zenn-markdown-html: 0.1.100
     transitivePeerDependencies:
       - '@types/markdown-it'
       - bufferutil
       - utf-8-validate
     dev: false
 
-  /zenn-markdown-html/0.1.98:
-    resolution: {integrity: sha512-h4pzd97ZJIvGteyaPhneR90NOThrUszwXsIw/q4ZvJDKsBhLJj9SzG52vxW+MDh15Uk7Pxyh31wuyVPbCgwbEQ==}
+  /zenn-markdown-html/0.1.100:
+    resolution: {integrity: sha512-7Ryr9U3DgpVJeTco53NWtjlGnXm2OgKLdJhXW328BVFG+94iOAPnzixkcLOL3zckSvqks3U6nhpmPvARubwM/A==}
     dependencies:
       '@steelydylan/markdown-it-imsize': 1.0.2
       '@steelydylan/prism-diff-highlight': 1.0.4
