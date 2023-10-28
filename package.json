@@ -13,7 +13,7 @@
     "prettier": "^3.0.3",
     "textlint": "^13.3.3",
     "textlint-rule-preset-ja-technical-writing": "^8.0.0",
-    "zenn-cli": "^0.1.144"
+    "zenn-cli": "^0.1.148"
   },
-  "packageManager": "pnpm@6.31.0"
+  "packageManager": "pnpm@8.10.0"
 }
