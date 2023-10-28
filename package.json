@@ -2,6 +2,7 @@
   "name": "@mkizka/zenn-content",
   "private": true,
   "scripts": {
+    "new": "zenn new:article",
     "dev": "run-p --print-label preview lint",
     "preview": "zenn preview",
     "lint": "chokidar \"articles\" -c \"textlint articles\" --initial",
