@@ -4,6 +4,7 @@
       "ja-no-weak-phrase": false,
       "no-exclamation-question-mark": false,
       "no-dropping-the-ra": false,
+      "no-doubled-joshi": false,
       "sentence-length": false
     }
   }
