@@ -5,7 +5,10 @@
       "no-exclamation-question-mark": false,
       "no-dropping-the-ra": false,
       "no-doubled-joshi": false,
-      "sentence-length": false
+      "sentence-length": false,
+      "ja-no-mixed-period": {
+        "allowPeriodMarks": [":"],
+      },
     }
   }
 }
