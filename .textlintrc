@@ -9,6 +9,9 @@
       "ja-no-mixed-period": {
         "allowPeriodMarks": [":"],
       },
-    }
-  }
+    },
+  },
+  "filters": {
+    "comments": true,
+  },
 }
