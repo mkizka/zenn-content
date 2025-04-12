@@ -11,10 +11,10 @@
   "dependencies": {
     "chokidar-cli": "^3.0.0",
     "npm-run-all": "^4.1.5",
-    "prettier": "^3.3.3",
-    "textlint": "^14.2.0",
-    "textlint-rule-preset-ja-technical-writing": "^10.0.1",
-    "zenn-cli": "^0.1.155"
+    "prettier": "^3.5.3",
+    "textlint": "^14.6.0",
+    "textlint-rule-preset-ja-technical-writing": "^12.0.2",
+    "zenn-cli": "^0.1.158"
   },
-  "packageManager": "pnpm@8.15.6+sha256.01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f"
+  "packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971"
 }
