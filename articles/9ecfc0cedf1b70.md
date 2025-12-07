@@ -1,5 +1,5 @@
 ---
-title: "AT Protocolで個人開発して遊ぼう"
+title: "AT Protocolで個人開発しよう"
 emoji: "🔗"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["atprotocol", "bluesky", "個人開発"]
