@@ -1,5 +1,5 @@
 ---
-title: "AT Protocolで小さいサービスを作って1年経った"
+title: "AT Protocolで個人開発して遊ぼう"
 emoji: "🔗"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["atprotocol", "bluesky", "個人開発"]
@@ -8,51 +8,17 @@ published: false
 
 この記事は[Bluesky / ATProtocol Advent Calendar 2025](https://adventar.org/calendars/12255)の13日目の記事です。
 
-AT ProtocolでLinkatという小さいリンク集サービスを作って1年くらい経ちました。その中で感じたAT Protocol(以降、本文ではatproto)の良いところと、開発コミュニティの今の雰囲気、atprotoを使って遊ぶ方法を書いてみます。
+AT Protocol(以降、本文ではatproto)は[Bluesky](https://bsky.app/)で使われている技術ですが、SNS以外にも色々作れます。
 
-このサービス自体は作っていくつか機能を足した後は放置しているので、サービスの機能とかはあまり書きません。
+私は[Linkat](https://linkat.blue/)というatprotoを使ったリンク集サービスを2024年末ごろに作りました。それから1年ほど経ってみて感じた、個人開発の手段としてのatprotoの良いところを書いてみます。
 
 ## AT Protocolとは
 
-atprotoは大雑把に言えば公開API付きストレージを全アカウントが持っているネットワークです。[Bluesky](https://bsky.app/)というSNSなどで使われています。
+atprotoは大雑把に言えばAPI付きストレージのようなもの(Personal Data Server、PDSと言います)を全アカウントが持っているネットワークです。このPDSからは誰でもデータを取得できます。
 
-APIが公開されているので、私が持っているデータを誰もが取得できます。
+https://atproto.com/
 
-例えば私のBlueskyのプロフィールは以下で閲覧できます。このサービスは[PDSls](https://pdsls.dev)という、atprotoのアカウントが持っているデータを簡単に確認・編集できるサイトです。
-
-https://pdsls.dev/at://did:plc:4gow62pk3vqpuwiwaslcwisa/app.bsky.actor.profile/self
-
-誰でもこのデータを使ってサービスを作ることが出来ます。これがまず良いところです。
-
-データがアカウント自身のサーバーに保存されるので、作るもの次第ではデータベース無しでサービスが作れます(このPDSlsもそうです)。個人開発でデータベースにかかる維持コストって割合として大きいんですよね。
-
-## AT Protocolを使うとプロダクト同士を繋げられる
-
-atprotoではアカウントが持っているデータが全て公開されるので、あるサービスが別のサービスで使われているデータを自由に使うことが出来ます。
-
-例えばLinkatではプロフィールの表示にBlueskyで使われているプロフィールデータをそのまま表示しています。
-
-↓でアカウントのアイコンが表示されていますが、Linkatで保存しているわけではありません。
-
-![](/images/9ecfc0cedf1b70/profile.png)
-
-逆にLinkatのデータが使われているサービスもあります。
-
-Blueskyクライアントの[TOKIMEKI](https://tokimeki.blue/)、[Klearsky](https://klearsky.pages.dev/)や、Blueskyのユーザー紹介サービス[SkyBeMoreBlue](https://www.skybemoreblue.com/)では、プロフィールにLinkatへのリンクやLinkatで設定したリンクが表示されています。他にもいくつか利用例があります。
-
-| TOKIMEKI                                 | Klearsky                                 | SkyBeMoreBlue                                 |
-| ---------------------------------------- | ---------------------------------------- | --------------------------------------------- |
-| ![](/images/9ecfc0cedf1b70/tokimeki.png) | ![](/images/9ecfc0cedf1b70/klearsky.png) | ![](/images/9ecfc0cedf1b70/skybemoreblue.png) |
-
-このようにプロダクト同士が自由にデータを使うことが出来るので、相互に連携出来るサービスが生まれるとお互いを便利に使うことが出来ます。
-
-もちろん同じアカウントが使えます。
-
-### 代替サービスも作れる
-
-異なるサービスが繋がるだけでなく、完全に同じ目的の代替サービスを作ることも出来ます。
-
-まず、Linkatのデータは以下のような非常に簡単なJSONになっています。
+例えば私のリンク集のデータをPDSから取得すると、以下のように非常に単純なJSONになっています。なおこの構造は開発者自身が定義できます。
 
 ```json
 {
@@ -75,30 +41,64 @@ Blueskyクライアントの[TOKIMEKI](https://tokimeki.blue/)、[Klearsky](http
 }
 ```
 
-これは以下のURLから取得できます。
+atprotoではこのようなJSONデータを使ってサービスを開発出来ます。
 
+## すでにあるアカウントとデータを使って始められる
+
+個人開発を始めるとき最初は利用者含めて何もないのが普通ですが、atprotoでは既存のアカウントとそのデータを利用できます。
+
+例えばLinkatではプロフィールの表示にBlueskyのプロフィールデータをそのまま使っています。
+
+![](/images/9ecfc0cedf1b70/profile.png)
+
+これが便利で、サービス内でプロフィール編集機能を提供していなくてもアイコンや名前を表示できます。
+
+他にもユーザーの認証認可もatprotoに乗っかることが出来るので、考えることが少なく済みます。これは個人開発において大きなメリットだと思います。
+
+## サービス同士がつながる
+
+上で挙げたのはBlueskyのデータを利用する例でしたが、逆にLinkatのデータを使っているサービスもあります。
+
+Blueskyクライアントの[TOKIMEKI](https://tokimeki.blue/)、[Klearsky](https://klearsky.pages.dev/)や、Blueskyユーザーの紹介サービス[SkyBeMoreBlue](https://www.skybemoreblue.com/)では、プロフィールにLinkatへのリンクやLinkatで設定したリンクが表示されています。他にもいくつか利用例があります。
+
+| TOKIMEKI                                 | Klearsky                                 | SkyBeMoreBlue                                 |
+| ---------------------------------------- | ---------------------------------------- | --------------------------------------------- |
+| ![](/images/9ecfc0cedf1b70/tokimeki.png) | ![](/images/9ecfc0cedf1b70/klearsky.png) | ![](/images/9ecfc0cedf1b70/skybemoreblue.png) |
+
+このようにサービス同士が自由にデータを使うことが出来るので、相互に連携したサービスが生まれるという面白さがあります。もちろんそれぞれのサービスで使うのは同じアカウントです。
+
+## DBなしでサービスが作れる(場合もある)
+
+さらに、このデータを簡単に取り出せる仕組みをうまく使えばデータベース無しでサービスが作れます。個人開発でデータベースにかかるコストって大きいんですよね。
+
+ただしブラウザと各ユーザーのPDSが直接通信するようなサービスに限ります。以下の図のような構成です。
+
+```mermaid
+flowchart TB
+    Pages[サーバー] --> Browser[ブラウザ]
+    PDS[PDS] <--> Browser
 ```
-https://enoki.us-east.host.bsky.network/xrpc/com.atproto.repo.getRecord?repo=did:plc:4gow62pk3vqpuwiwaslcwisa&collection=blue.linkat.board&rkey=self
-```
 
-URLを分解すると以下のようになっています。
+このサーバーはGitHub PagesやCloudflare Pagesなどでも良いです。
 
-- `https://enoki.us-east.host.bsky.network`
-  - アカウントが所属しているサーバー。Personal Data Server(PDS)と呼ぶ
-- `/xrpc/com.atproto.repo.getRecord`
-  - データ1つを取得するAPI。このAPI群をXRPCとも言い、データはレコードと言う
-- `?repo=did:plc:4gow62pk3vqpuwiwaslcwisa`
-  - アカウントのリポジトリ。`did:`から始まる文字列が私のアカウントのID
-- `&collection=blue.linkat.board`
-- `&rkey=self`
-  - レコードの種類とキー
+技術的な制約として、このようにブラウザとPDSが一対一で通信することになるので複数アカウントのデータをまとめて表示するような機能が作れません。SNSのタイムライン、アカウントを横断した検索などです。
 
-これは認証無しでリクエスト出来るので、これを呼び出す実装を書くだけでもうLinkatと同じリンク集サービスが作れます。
-
-もちろん編集したい場合は別途ログインと実装が必要です。編集したリンク集はPDSに保存されるので、おそらくデータベース無しでも作れるはずです。
-
-(LinkatはSSRさせたかったのでデータベースを使っています。)
+一方で自分のデータしか使わないツール的なサービスが作れます。例えばTODOアプリや勉強記録、短縮リンクサービスなどです。
 
 ## AT Protocolの遊び方
 
+atprotoの良いところを紹介してきました。これから試してみたい方には公式から分かりやすいチュートリアルが出ています。
+
+https://atproto.com/ja/guides/applications
+
+こちらはこの記事で紹介した単純なパターンではなく、ExpressサーバーとDBを使ったより本格的な構成になっています。
+
 ## まとめ
+
+個人開発目線でのatprotoで良いところを紹介しました。
+
+- 既存のアカウントとデータを使って始められる
+- サービス同士がつながる面白さがある
+- 構成次第ではDBなしで作れる
+
+興味があればぜひ触ってみてください。
