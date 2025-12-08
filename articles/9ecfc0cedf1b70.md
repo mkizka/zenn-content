@@ -1,9 +1,9 @@
 ---
 title: "AT Protocolで個人開発しよう"
-emoji: "🔗"
+emoji: "🚀"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["atprotocol", "bluesky", "個人開発"]
-published: false
+published: true
 ---
 
 この記事は[Bluesky / ATProtocol Advent Calendar 2025](https://adventar.org/calendars/12255)の8日目の記事です。
@@ -16,7 +16,11 @@ AT Protocol(以降、本文ではatproto)は[Bluesky](https://bsky.app/)で使�
 
 atprotoは大雑把に言えばAPI付きストレージ[^1]のようなものを全アカウントが持っているネットワークです。
 
+<!-- textlint-disable -->
+
 [^1]: [atproto入門1 PDSって？どういう特徴があるの？？](https://whtwnd.com/did:plc:fzkpgpjj7nki7r5rhtmgzrez/3kpf7sy4wnq2d)という記事で見た納得感ある例えです。
+
+<!-- textlint-enable -->
 
 https://atproto.com/
 
