@@ -10,7 +10,7 @@ published: true
 
 AT Protocol(以降、本文ではatproto)は[Bluesky](https://bsky.app/)で使われている技術ですが、実はSNS以外にも色々作れます。
 
-私は[Linkat](https://linkat.blue/)というatprotoを使ったリンク集サービスを2024年末ごろに作りました。それから1年ほど経ってみて感じた、個人開発の手段としてのatprotoの良いところを書いてみます。
+私は[Linkat](https://linkat.blue/)というatprotoを使った小さいリンク集サービスを2024年末ごろに作りました。それから1年ほど経ってみて感じた、個人開発の手段としてのatprotoの良いところを書いてみます。
 
 ## AT Protocolとは
 
