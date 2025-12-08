@@ -6,17 +6,21 @@ topics: ["atprotocol", "bluesky", "個人開発"]
 published: false
 ---
 
-この記事は[Bluesky / ATProtocol Advent Calendar 2025](https://adventar.org/calendars/12255)の13日目の記事です。
+この記事は[Bluesky / ATProtocol Advent Calendar 2025](https://adventar.org/calendars/12255)の8日目の記事です。
 
-AT Protocol(以降、本文ではatproto)は[Bluesky](https://bsky.app/)で使われている技術ですが、SNS以外にも色々作れます。
+AT Protocol(以降、本文ではatproto)は[Bluesky](https://bsky.app/)で使われている技術ですが、実はSNS以外にも色々作れます。
 
 私は[Linkat](https://linkat.blue/)というatprotoを使ったリンク集サービスを2024年末ごろに作りました。それから1年ほど経ってみて感じた、個人開発の手段としてのatprotoの良いところを書いてみます。
 
 ## AT Protocolとは
 
-atprotoは大雑把に言えばAPI付きストレージのようなもの(Personal Data Server、PDSと言います)を全アカウントが持っているネットワークです。このPDSからは誰でもデータを取得できます。
+atprotoは大雑把に言えばAPI付きストレージ[^1]のようなものを全アカウントが持っているネットワークです。
+
+[^1]: [atproto入門1 PDSって？どういう特徴があるの？？](https://whtwnd.com/did:plc:fzkpgpjj7nki7r5rhtmgzrez/3kpf7sy4wnq2d)という記事で見た納得感ある例えです。
 
 https://atproto.com/
+
+このAPI付きストレージのようなものをPersonal Data Server、PDSと言います。そしてこのPDSからは誰でもデータを取得できます。
 
 例えば私のリンク集のデータをPDSから取得すると、以下のように非常に単純なJSONになっています。なおこの構造は開発者自身が定義できます。
 
@@ -47,7 +51,7 @@ atprotoではこのようなJSONデータを使ってサービスを開発出来
 
 個人開発を始めるとき最初は利用者含めて何もないのが普通ですが、atprotoでは既存のアカウントとそのデータを利用できます。
 
-例えばLinkatではプロフィールの表示にBlueskyのプロフィールデータをそのまま使っています。
+例えば私が開発したLinkatではプロフィールの表示にBlueskyのプロフィールデータをそのまま使っています。
 
 ![](/images/9ecfc0cedf1b70/profile.png)
 
