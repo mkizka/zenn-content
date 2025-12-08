@@ -1,7 +1,7 @@
 ---
 title: "AT Protocolで個人開発しよう"
 emoji: "🚀"
-type: "tech" # tech: 技術記事 / idea: アイデア
+type: "idea" # tech: 技術記事 / idea: アイデア
 topics: ["atprotocol", "bluesky", "個人開発"]
 published: true
 ---
